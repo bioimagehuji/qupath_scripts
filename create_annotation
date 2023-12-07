@@ -1,0 +1,13 @@
+// Create an Annotation and select it
+def plane = ImagePlane.getPlane(0, 0)
+x = 14600
+y = 10900
+w = 300
+h = 300
+pixel_size_xy = 0.3
+def roi = ROIs.createRectangleROI((int)(x/pixel_size_xy), (int)(y/pixel_size_xy), w, h, plane)
+def annotation = PathObjects.createAnnotationObject(roi)
+addObject(annotation)
+annotation.setPathClass(getPathClass("Tumor"))
+annotation.setName("MyAnnotation")
+selectObjects(annotation)
